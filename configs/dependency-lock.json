@@ -41,6 +41,12 @@
           "rtx5090"
         ]
       },
+      "sm_70": {
+        "cuda_arch_list": "7.0",
+        "profiles": [
+          "v100"
+        ]
+      },
       "sm_89": {
         "cuda_arch_list": "8.9",
         "profiles": [

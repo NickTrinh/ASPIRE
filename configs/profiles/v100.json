@@ -1,0 +1,19 @@
+{
+  "schema": "cap-harness/profile/1",
+  "name": "v100",
+  "arch": "sm_70",
+  "description": "Single Volta V100 (sm_70) on a shared cluster node; all providers share one GPU with serialized access. The GPU index is the node's physical index, so edit it to move the providers to another card.",
+  "venv_root": null,
+  "gpus": {
+    "sam3": 0,
+    "contact_graspnet": 0,
+    "curobo": 0
+  },
+  "concurrency": {
+    "sam3": 1,
+    "contact_graspnet": 1,
+    "pyroki": 4,
+    "curobo": 1
+  },
+  "ports": {}
+}
