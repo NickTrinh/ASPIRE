@@ -100,8 +100,13 @@ mkdir -p "$UV_CACHE_ROOT"
 # Preserve an existing environment (idempotent bootstrap); Stage 8 adds a
 # fingerprint short-circuit so an unchanged bootstrap is a genuine no-op.
 UV_CACHE_DIR="$UV_CACHE_ROOT" uv venv --allow-existing --python "$PYTHON_BIN" "$VENV_ROOT"
+# Fork addition: CAP_HARNESS_UV_SYNC_ARGS (default empty) passes extra arguments to `uv sync`,
+# split on spaces. open3d 0.19 ships only manylinux_2_31 wheels, so it can't install on glibc 2.28
+# hosts such as Rocky Linux 8. Contact-GraspNet imports open3d only in its visualization and test
+# modules, so those hosts build it with CAP_HARNESS_UV_SYNC_ARGS="--no-install-package open3d".
+read -r -a UV_SYNC_ARGS <<< "${CAP_HARNESS_UV_SYNC_ARGS:-}"
 VIRTUAL_ENV="$VENV_ROOT" UV_PROJECT_ENVIRONMENT="$VENV_ROOT" UV_CACHE_DIR="$UV_CACHE_ROOT" \
-  uv sync --frozen --active --project "$REPO_ROOT" --extra "$EXTRA"
+  uv sync --frozen --active --project "$REPO_ROOT" --extra "$EXTRA" ${UV_SYNC_ARGS[@]+"${UV_SYNC_ARGS[@]}"}
 
 "$VENV_ROOT/bin/python" - "$VENV_BASENAME" "$IMPORT_CHECK" "$MODULE" <<'PY'
 import importlib
