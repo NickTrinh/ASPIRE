@@ -112,9 +112,6 @@ OMNIGIBSON_HEADLESS=1 OMNIGIBSON_GPU_ID=0 OMNIGIBSON_DATA_PATH="$HOME/behavior-d
 
 ## Other LIBERO-Pro programs
 
-`examples/libero/` also carries five programs that came out of fix-loop campaigns rather than a
-pinned validation scope: `close_microwave.py`, `open_middle_drawer.py`,
-`put_bowl_in_bottom_drawer.py`, `put_wine_bottle_on_drawer.py` and `put_wine_bottle_on_rack.py`.
-They are accepted by the generated-program validator and run with the same command shape as the
-object-swap program, substituting their suite and task id; no success rate is claimed for them
-here, so treat them as starting points rather than release-gated results.
+`main` also carries five programs that came out of fix-loop campaigns. This branch
+(`paper-empty-library`) removes them so that runs start without worked solutions, as the
+paper-era `v0.1` code did.

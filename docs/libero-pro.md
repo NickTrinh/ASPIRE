@@ -89,24 +89,6 @@ run artifacts.
 
 ## Task examples
 
-The public-API-only examples cover perception-driven manipulation beyond the
-object-swap smoke task. They contain no seed-specific behavior; validation
-claims should name the exact task and seeds that were run.
-
-| Program | Suite/task | Behavior |
-| --- | --- | --- |
-| `open_middle_drawer.py` | `libero_goal_swap:0` | Localize and pull the middle drawer. |
-| `put_bowl_in_bottom_drawer.py` | `libero_10_swap:3` | Rim-grasp a bowl, place it in the open bottom drawer, and close the drawer. |
-| `put_wine_bottle_on_drawer.py` | `libero_goal_swap:2` | Side-grasp a bottle and place it on the cabinet. |
-| `put_wine_bottle_on_rack.py` | `libero_goal_swap:9` | Side-grasp a bottle and place it on the rack's sloped receiving plane. |
-| `close_microwave.py` | `libero_90:33` | Close the open microwave with a staged door sweep. |
-
-These programs intentionally compose the documented low-level tools
-(`segment_text`, `mask_to_point_cloud`, `plan_motion`, and
-`execute_trajectory`) where contact-rich behavior needs more control than a
-single high-level move. See the [API reference](api-reference.md) for the
-complete boundary.
-
-The five programs above have fresh task-success evidence at seed 1. The
-microwave sweep additionally passes seeds 2 and 3. This is selected-example
-evidence, not a broad randomized-layout robustness claim.
+This branch (`paper-empty-library` in the V100 fork) removes the five campaign-derived task
+programs that `main` ships here, so that runs start without worked solutions, as the paper-era
+`v0.1` code did. The object-swap smoke program above remains.
