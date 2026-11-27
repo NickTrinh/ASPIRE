@@ -114,4 +114,4 @@ OMNIGIBSON_HEADLESS=1 OMNIGIBSON_GPU_ID=0 OMNIGIBSON_DATA_PATH="$HOME/behavior-d
 
 `main` also carries five programs that came out of fix-loop campaigns. This branch
 (`paper-empty-library`) removes them so that runs start without worked solutions, as the
-paper-era `v0.1` code did.
+earlier `v0.1` release did.

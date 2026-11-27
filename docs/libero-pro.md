@@ -90,5 +90,5 @@ run artifacts.
 ## Task examples
 
 This branch (`paper-empty-library` in the V100 fork) removes the five campaign-derived task
-programs that `main` ships here, so that runs start without worked solutions, as the paper-era
-`v0.1` code did. The object-swap smoke program above remains.
+programs that `main` ships here, so that runs start without worked solutions, as the earlier
+`v0.1` release did. The object-swap smoke program above remains.
