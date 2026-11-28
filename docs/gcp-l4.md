@@ -75,9 +75,10 @@ Put the campaign prompt in `~/aspire-home/phase5-prompt.txt` (see `phase5-prompt
 tmux new-session -d -s aspire-resume ~/aspire-setup/aspire-resume.sh
 ```
 
-`aspire-resume.sh` types `continue` into the agent's session only when the agent is idle and
-shows a Claude usage-limit message (on a limited plan, a long campaign hits several), and picks
-only "Stop and wait" if a limit menu appears.
+`aspire-resume.sh` handles Claude usage limits (on a limited plan, a long campaign hits several):
+when Claude Code's limit menu appears it picks "Wait here, then continue automatically" (never the
+credits or upgrade options), and as a fallback it types `continue` only when the agent is idle and
+shows a limit message.
 
 ## Problems this recipe already fixes
 
